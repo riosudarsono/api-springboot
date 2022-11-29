@@ -1,7 +1,7 @@
 package com.rio.movieapi.service
 
-import com.rio.movieapi.dto.MovieDTO
-import com.rio.movieapi.mapper.MovieMapper
+import com.rio.movieapi.data.dto.MovieDTO
+import com.rio.movieapi.data.mapper.MovieMapper
 import com.rio.movieapi.repository.MovieRepository
 import com.rio.movieapi.utils.ApiSuccess
 import org.springframework.stereotype.Service
@@ -13,7 +13,7 @@ class MovieServiceImpl(
 ) : MovieService {
 
     override fun createMovie(movieDTO: MovieDTO): Long {
-        if (movieDTO.id == null)
+        if (movieDTO.id != null)
             throw IllegalArgumentException("ID must be null")
         if (movieDTO.rating == null || movieDTO.name == null)
             throw IllegalArgumentException("Must complete movie object")
@@ -43,6 +43,14 @@ class MovieServiceImpl(
 
         movieRepository.save(movieMapper.toEntity(movieDTO))
         return movieDTO.id ?: 0
+    }
+
+    override fun deleteMovie(id: Long): Long {
+        val isExist = movieRepository.existsById(id)
+        if (!isExist)
+            throw IllegalArgumentException("Movie with id $id is not exist")
+        movieRepository.deleteById(id)
+        return id
     }
 
 }

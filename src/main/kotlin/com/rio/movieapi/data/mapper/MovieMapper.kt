@@ -1,7 +1,7 @@
-package com.rio.movieapi.mapper
+package com.rio.movieapi.data.mapper
 
-import com.rio.movieapi.dto.MovieDTO
-import com.rio.movieapi.entity.Movie
+import com.rio.movieapi.data.dto.MovieDTO
+import com.rio.movieapi.data.entity.Movie
 import org.springframework.stereotype.Component
 
 @Component

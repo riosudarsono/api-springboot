@@ -1,4 +1,4 @@
-package com.rio.movieapi.dto
+package com.rio.movieapi.data.dto
 
 data class MovieDTO(
     val id: Long?,

@@ -1,4 +1,4 @@
-package com.rio.movieapi.entity
+package com.rio.movieapi.data.entity
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
