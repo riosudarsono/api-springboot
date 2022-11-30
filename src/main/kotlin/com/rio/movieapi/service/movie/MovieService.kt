@@ -1,7 +1,6 @@
-package com.rio.movieapi.service
+package com.rio.movieapi.service.movie
 
 import com.rio.movieapi.data.dto.MovieDTO
-import com.rio.movieapi.utils.ApiSuccess
 
 interface MovieService {
     fun createMovie(movieDTO: MovieDTO): Long

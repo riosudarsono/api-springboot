@@ -1,4 +1,4 @@
-package com.rio.movieapi.utils
+package com.rio.movieapi.utils.handler
 
 import org.springframework.http.HttpStatus
 

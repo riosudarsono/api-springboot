@@ -1,9 +1,8 @@
-package com.rio.movieapi.service
+package com.rio.movieapi.service.movie
 
 import com.rio.movieapi.data.dto.MovieDTO
 import com.rio.movieapi.data.mapper.MovieMapper
 import com.rio.movieapi.repository.MovieRepository
-import com.rio.movieapi.utils.ApiSuccess
 import org.springframework.stereotype.Service
 
 @Service
