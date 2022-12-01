@@ -26,17 +26,13 @@ class MovieResource(
 ) {
 
     @PostMapping
-    fun createMovie(@RequestHeader("Authorization") token: String,
-                    @RequestBody movieDTO: MovieDTO): ResponseEntity<ApiSuccess<Long>> {
-        userRepository.getUserByToken(token) ?: throw UnauthorizedException(Constant.authorization)
-        return ResponseEntity(ApiSuccess(movieService.createMovie(movieDTO), status = HttpStatus.CREATED), HttpStatus.CREATED)
-    }
+    fun createMovie(@RequestHeader("Authorization") token: String, @RequestBody movieDTO: MovieDTO) =
+        ResponseEntity(ApiSuccess(movieService.createMovie(movieDTO), status = HttpStatus.CREATED), HttpStatus.CREATED)
+
 
     @GetMapping
-    fun getMovies(@RequestHeader("Authorization") token: String): ResponseEntity<ApiSuccess<List<MovieDTO>>> {
-        userRepository.getUserByToken(token) ?: throw UnauthorizedException(Constant.authorization)
-        return ResponseEntity.ok(ApiSuccess(movieService.getMovies()))
-    }
+    fun getMovies(@RequestHeader("Authorization") token: String) =
+        ResponseEntity.ok(ApiSuccess(movieService.getMovies()))
 
     @GetMapping("/{id}")
     fun movieDetail(@PathVariable id: Long) = ResponseEntity.ok(ApiSuccess(movieService.movieDetail(id)))
